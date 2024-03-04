@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'dashboard.cs' %}">
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <title>Profile</title>
+</head>
+ <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+  }
+
+  .topbar {
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 2fr 10fr 0.4fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+
+  /* sidebar */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    width: 260px;
+    height: calc(100% - 60px);
+    background: black;
+    overflow-x: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .sidebar ul {
+    margin-top: 20px;
+  }
+
+  .sidebar ul li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .sidebar ul li:hover {
+    background: #fff;
+  }
+
+  .sidebar ul li:hover a {
+    color: black;
+  }
+
+  .sidebar ul li a {
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar ul li a i {
+    min-width: 60px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* main */
+  .main {
+    position: absolute;
+    top: 60px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 60px);
+    left: 260px;
+    background: #242424;
+  }
+
+
+         input{
+     padding: 5px 205px 5px 5px;
+     display: flex;
+     margin-top: 15px;
+     background-color: #fff;
+     color: black;
+     border-radius: 18px;
+     margin-bottom: 20px;
+    }
+    label{
+     font-size: 20px;
+     font-weight: 500;
+     color: #fff;
+     font-style: oblique;
+    }
+
+    .ver{
+     margin-bottom: 15px;
+     margin-top:15px;
+    }
+
+  .form{
+    padding-top: 50px;
+    padding-left: 25px;
+    padding-bottom: 50px;
+  }
+
+  .h1s{
+    margin-bottom: 25px;
+    font-size:38px ;
+    font-style: oblique;
+    color: #fff;
+  }
+
+  .btn2{
+    padding: 5px 20px;
+    border-radius: 15px;
+    font-weight: 700;
+    transition: all 330ms ease;
+  }
+  .btn2:hover{
+    background-color: black;
+    color: #fff;
+  }
+
+  .h2s{
+    color: #fff;
+
+  }
+
+  @media (max-width:880px) {
+
+    .topbar {
+      grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+    }
+
+  }
+
+  @media (max-width:420px) {
+    .sidebar {
+      width: 60px;
+    }
+
+         input{
+     padding: 5px 5px 5px 5px;
+     }
+
+    .main {
+      width: calc(100% - 60px);
+      left: 60px;
+    }
+
+    .logo{
+      font-size: 10px;
+    }
+
+    .user p{
+      font-size: 12px;
+    }
+
+    .h1s{
+      font-size: 25px;
+    }
+
+    label{
+     font-size: 15px;
+    }
+
+    .h2s{
+      font-size:15px;
+
+    }
+
+    .p2{
+     font-size: 13px;
+    }
+
+     .btn2{
+              font-size: 10px;
+            }
+
+  }
+</style>
+
+<body>
+ <section>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Prime-Capital</h2>
+            </div>
+            <div class="user">
+                <p>{{ user.username }}</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i id="i" class="fas fa-solid fa-house-user"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'select-package' %}">
+                        <i id="i" class="fas fa-solid fa-cash-register"></i>
+                        <div>Deposit</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'request-withdrawal' %}">
+                        <i id="i" class="fas fa-solid fa-wallet"></i>
+                        <div>Withdraw</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'transactions' %}">
+                        <i id="i" class="fas fa-solid fa-location-arrow"></i>
+                        <div>Transactions</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">
+                        <i id="i" class="fas fa-solid fa-user"></i>
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'submit-verification' %}">
+                        <i class="fas fa-solid fa-check"></i>
+                        <div>Verification</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'referrals' %}">
+                        <i id="i" class="fas fa-solid fa-user-plus"></i>
+                        <div>Refferal</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'customer' %}">
+                        <i id="i" class="fas fa-solid fa-headset"></i>
+                        <div>Customer
+                            Support</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i id="i" class="fas fa-solid fa-outdent"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+  </section>
+    <div class="main">
+      <div class="row">
+        <div class="form">
+          <h1 class="h1s">Profile</h1>
+          <form method="post" class="hu">
+            {% csrf_token %} {{ form.as_p }}
+            <div class="upd">
+              <p>
+                Want to upadte password ?
+              </p>
+              <a href="change_password.html">Click Here</a>
+            </div>
+            <div class="ver">
+              <h2 class="h2s">Verification Status</h2>
+              {% if verification %}
+              <p>
+                Your verification status is:
+                <strong>{{ "Verified" if verification.is_verified else "Pending"
+                  }}</strong>
+              </p>
+              {% else %}
+              <p class="p2">You have not submitted any verification status</p>
+              {% endif %}
+            </div>
+            <div>
+              <button class="btn2" type="submit">Update Profile</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>

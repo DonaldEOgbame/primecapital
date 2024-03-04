@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'dashboard.cs' %}" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Refferal</title>
+  </head>
+ <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+  }
+
+  .topbar {
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 2fr 10fr 0.4fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+
+  /* sidebar */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    width: 260px;
+    height: calc(100% - 60px);
+    background: black;
+    overflow-x: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .sidebar ul {
+    margin-top: 20px;
+  }
+
+  .sidebar ul li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .sidebar ul li:hover {
+    background: #fff;
+  }
+
+  .sidebar ul li:hover a {
+    color: black;
+  }
+
+  .sidebar ul li a {
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar ul li a i {
+    min-width: 60px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* main */
+  .main {
+    position: absolute;
+    top: 60px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 60px);
+    left: 260px;
+    background: #242424;
+    padding-top: 50px;
+    padding-left: 50px;
+  }
+
+  .h1s{
+    margin-bottom: 25px;
+    text-align: center;
+    font-size:32px ;
+    font-style: oblique;
+    color: #fff;
+  }
+
+  .ref{
+    background-color: black;
+    color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+  }
+
+  .ref p{
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+
+  .refferals{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .reff{
+  margin-top:28px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 23px;
+   text-align: center;
+  }
+
+  #fa{
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+  .logo{
+    font-style: oblique;
+    font-size: 20px;
+  }
+
+  @media (max-width:880px) {
+
+    .topbar {
+      grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+    }
+
+  }
+
+  @media (max-width:420px) {
+    .sidebar {
+      width: 60px;
+    }
+
+    .main {
+      width: calc(100% - 60px);
+      left: 60px;
+    }
+
+    .refferals{
+      flex-direction: column;
+      margin-right: 39px;
+      justify-content: center;
+    }
+
+    .ref{
+      margin-bottom: 15px;
+    }
+
+    .h1s{
+      font-size: 25px;
+      text-align: justify;
+      margin-left: 8px;
+    }
+
+    .logo{
+      font-size: 10px;
+    }
+
+    .user p{
+      font-size: 12px;
+    }
+
+    .reff{
+      font-size: 15px;
+      margin-right: 40px;
+    }
+  }
+</style>
+
+<body>
+  <section>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Prime-Capital</h2>
+            </div>
+            <div class="user">
+                <p>{{ user.username }}</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i id="i" class="fas fa-solid fa-house-user"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'select-package' %}">
+                        <i id="i" class="fas fa-solid fa-cash-register"></i>
+                        <div>Deposit</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'request-withdrawal' %}">
+                        <i id="i" class="fas fa-solid fa-wallet"></i>
+                        <div>Withdraw</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'transactions' %}">
+                        <i id="i" class="fas fa-solid fa-location-arrow"></i>
+                        <div>Transactions</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">
+                        <i id="i" class="fas fa-solid fa-user"></i>
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'submit-verification' %}">
+                        <i class="fas fa-solid fa-check"></i>
+                        <div>Verification</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'referrals' %}">
+                        <i id="i" class="fas fa-solid fa-user-plus"></i>
+                        <div>Refferal</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'customer' %}">
+                        <i id="i" class="fas fa-solid fa-headset"></i>
+                        <div>Customer
+                            Support</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i id="i" class="fas fa-solid fa-outdent"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+  </section>
+  <main>
+    <div class="main">
+      <h1 class="h1s">Referral Information</h1>
+      <div class="refferals">
+        <div class="ref">
+          <div class="fa">
+            <i id="fa" class="fas fa-solid fa-user-plus"></i>
+         </div>
+          <p>Total Refferals</p>
+          <p>{{ total_referrals }}</p>
+        </div>
+        <div class="ref">
+          <div class="fa">
+            <i id="fa" class="fas fa-solid fa-user-plus"></i>
+         </div>
+          <p>Active Refferals</p>
+          <p>{{ active_referrals }}</p>
+        </div>
+
+      </div>
+        {% if user.referral_code %}
+        <div class="reff">
+          <p>Referral Code: {{ user.referral_code }} </p>
+        </div>
+        {% endif %}
+    </div>
+  </main>
+</body>
+</html>

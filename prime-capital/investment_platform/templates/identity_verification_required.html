@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@700&display=swap');
+    *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+    body{
+     background-color: #242424;
+    }
+   .container{
+     padding-top: 100px;
+    }
+    .row{
+     width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
+    }
+    .identity{
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     box-shadow: 0 0 15px rgba(0, 0, 0.7);
+     border-radius: 10px;
+     background-color: #006eff;
+     padding: 100px;
+    }
+    .identity p{
+       font-size: 20px;
+       font-weight: 600;
+       color: #fff;
+    }
+    .identity h1{
+     text-transform: uppercase;
+     margin-bottom: 28px;
+     color: #fff;
+    }
+</style>
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="identity">
+            <h1>Verify Status</h1>
+           <p>Dear {{ user.username }}, we kindly request you to verify your current status for our records. Your prompt response is highly appreciated. Thank you</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

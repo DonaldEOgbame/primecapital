@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'main.css' %}" />
+  <script src="https://kit.fontawesome.com/c8e4d183c2.js" crossorigin="anonymous"></script>
+  <script src="{% static 'app.js' %}" defer></script>
+</head>
+<style>
+  .pri{
+    margin-bottom: 28px;
+  }
+  .tradingview-widget-container{
+    width: 900px;
+  }
+  .plan{
+    background-color: black;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  .invest__fig{
+    width:100%;
+  }
+
+  .invest__im{
+    width: 50%;
+  }
+</style>
+<body>
+  <section id="land">
+    <div class="head">
+      <div class="row">
+        <nav class="navbar">
+          <div class="logo">
+            <img src="{% static 'logo.2c489fc453a1783cbadacf914efa3df6.svg' %}" class="logo__img" alt="" />
+            <a href="" class="logo__name">Prime Capital</a>
+          </div>
+          <ul>
+            <li>
+              <a href="{% url 'index' %}" class="nav__link nav__link--effect">Home</a>
+            </li>
+            <li>
+              <a href="{% url 'market' %}" class="nav__link nav__link--effect">Market</a>
+            </li>
+            <li>
+              <a href="{% url 'leaders' %}" class="nav__link nav__link--effect">Leader</a>
+            </li>
+            <li>
+              <a href="{% url 'investors' %}" class="nav__link nav__link--effect">Trading</a>
+            </li>
+            <li>
+              <a href="{% url 'support' %}" class="nav__link nav__link--effect">Support</a>
+            </li>
+            <li>
+              <a href="{% url 'login' %}" class="nav__link nav__link--effect">Login</a>
+            </li>
+            <li>
+              <a href="{% url 'register' %}" class="nav__btn nav__btn--display">Sign Up</a>
+            </li>
+          </ul>
+          <button class="btn__menu" onclick="openMenu()">
+            <i class="fas fa-bars"></i>
+          </button>
+          <div class="menu__backdrop">
+            <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+              <i class="fas fa-times"></i>
+            </button>
+            <ul class="menu__links">
+              <li class="menu__list">
+                <a href="{% url 'index' %}" class="menu__link" onclick="closeMenu()">Home</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'market' %}" class="menu__link" onclick="closeMenu()">Market</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'leaders' %}" class="menu__link" onclick="closeMenu()">Leader</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'investors' %}" class="menu__link" onclick="closeMenu()">Trading</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'support' %}" class="menu__link" onclick="closeMenu()">Support</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'login' %}" class="menu__link" onclick="closeMenu()">Login</a>
+              </li>
+              <li class="menu__list">
+                <a href="{% url 'register' %}" class="menu__link" onclick="closeMenu()">Sign Up</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <div class="btn__wra">
+          <button class="btn__head">Start Investing</button>
+          <button class="btn__head1">Register Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    <main>
+    <section>
+      <div class="container contain">
+        <div class="row">
+          <div class="crypto">
+            <div class="crypto__text">
+              <h1 class="crypto__h1">Cryptocurrency Live Prices</h1>
+              <p class="crypto__p">
+                0verview Widget provides a quick glance at the latest market
+                activity across various sectors. It works great for homepages,
+                and it can be configured to take users to a page with a larger
+                chart on your site. Set your own instrument lists and tabs to
+                cover what you need, adjust the timeframe for the chart or
+                even hide
+              </p>
+              <button class="nav__btn">Learn More</button>
+            </div>
+            <figure class="crypto__wrap">
+              <img src="{% static 'andre-francois-mckenzie-iGYiBhdNTpE-unsplash.jpg' %}" class="crypto__img" alt="" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container contain">
+        <div class="row">
+          <div class="strategy">
+            <div class="stra">
+              <figure class="stra__fig">
+                <img src="{% static 'bench-accounting-C3V88BOoRoM-unsplash.jpg' %}" class="stra__img" alt="" />
+              </figure>
+              <p class="stra__p">Audit & Evaluation</p>
+            </div>
+            <div class="stra">
+              <figure class="stra__fig">
+                <img src="{% static 'brooke-cagle-g1Kr4Ozfoac-unsplash.jpg' %}" class="stra__img" alt="" />
+              </figure>
+              <p class="stra__p">Consulting Services</p>
+            </div>
+            <div class="stra">
+              <figure class="stra__fig">
+                <img src="{% static 'tim-van-der-kuip-CPs2X8JYmS8-unsplash.jpg' %}" class="stra__img" alt="" />
+              </figure>
+              <p class="stra__p">Strategy & Planning</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container contain">
+        <div class="row">
+          <div class="invest">
+            <h1 class="invest__h1">CRYPTO INVESTMENT</h1>
+            <p class="invest__p">
+              A super competitive exchange rate, for a fixed amount,Start
+              trading Futures with us, we are available anytime you want to
+              initiate a trade
+            </p>
+            <figure class="invest__fig">
+              <img src="{% static 'cardano-blockchain-platform-with-smartphone.jpg' %}" alt="" class="invest__im" />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container contain con">
+        <div class="row">
+          <div class="business">
+            <h1 class="busi__fea">FEATURED OPTIONS</h1>
+            <div class="fea__con">
+              <div class="busi__content">
+                <figure class="svg">
+                  <img src="{% static 'bitcoin-svgrepo-com.svg' %}" class="svg1" alt="" />
+                </figure>
+                <p class="busi__p1">Business Analysis</p>
+                <p>
+                  A Complete overview on every bitcoin security, with live
+                  quotes, detailed reports, data sheets, and analysts
+                  recommendations
+                </p>
+              </div>
+              <div class="busi__content">
+                <figure class="svg">
+                  <img src="{% static 'chart-column-svgrepo-com.svg' %}" class="svg1" alt="" />
+                </figure>
+                <p class="busi__p1">Stock Screener</p>
+                <p>
+                  Explore The Market With Ease using the intuitive option. You
+                  can also easily find securities by typing in just the first
+                  few letters.
+                </p>
+              </div>
+              <div class="busi__content">
+                <figure class="svg">
+                  <img src="{% static 'chart-line-up-svgrepo-com.svg' %}" class="svg1" alt="" />
+                </figure>
+                <p class="busi__p1">Interactive Charts</p>
+                <p>
+                  Professional charting system with customizable timeframes and over 90 technical indicators and data
+                  export, free of charge to our investors.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container con1">
+        <div class="row">
+          <div class="pri">
+            <h1>INVESTMENT PRICING</h1>
+          </div>
+          <!-- TradingView Widget BEGIN -->
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow"
+                target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+            <script type="text/javascript"
+              src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                ({
+                  "symbols": [
+                    {
+                      "proName": "FOREXCOM:SPXUSD",
+                      "title": "S&P 500 Index"
+                    },
+                    {
+                      "proName": "FOREXCOM:NSXUSD",
+                      "title": "US 100 Cash CFD"
+                    },
+                    {
+                      "proName": "FX_IDC:EURUSD",
+                      "title": "EUR to USD"
+                    },
+                    {
+                      "proName": "BITSTAMP:BTCUSD",
+                      "title": "Bitcoin"
+                    },
+                    {
+                      "proName": "BITSTAMP:ETHUSD",
+                      "title": "Ethereum"
+                    },
+                    {
+                      "description": "   Gold",
+                      "proName": "TVC:GOLD"
+                    },
+                    {
+                      "description": "GBP",
+                      "proName": "OANDA:GBPJPY"
+                    },
+                    {
+                      "description": "US",
+                      "proName": "TVC:US10Y"
+                    }
+                  ],
+                    "showSymbolLogo": true,
+                      "isTransparent": false,
+                        "displayMode": "adaptive",
+                          "colorTheme": "dark",
+                            "locale": "en"
+                })
+              </script>
+          </div>
+          <!-- TradingView Widget END -->
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="conatiner contain">
+        <div class="row">
+          <div class="prices">
+            <div class="price__con">
+              <h3 class="plan">Bronze Plan</h3>
+              <p class="invi__p">15% INVESTMENT IN 12 HOURS</p>
+              <div class="po">
+                <p class="min">Minimum</p>
+                <span class="po__p">$50</span>
+              </div>
+              <div class="po">
+                <p class="max">Maximum</p>
+                <span class="po__p">$499</span>
+              </div>
+              <div class="po">
+                <p class="io">Refferal</p>
+                <span class="po__p">$10</span>
+              </div>
+              <div class="po">
+                <p class="ga">Gateway</p>
+                <span class="po__p">BTC/USDT</span>
+              </div>
+            </div>
+            <div class="price__con">
+              <h3 class="plan">Silver Plan</h3>
+              <p class="invi__p">20% INVESTMENT IN 24 HOURS</p>
+              <div class="po">
+                <p class="min">Minimum</p>
+                <span class="po__p">$500</span>
+              </div>
+              <div class="po">
+                <p class="max">Maximum</p>
+                <span class="po__p">$999</span>
+              </div>
+              <div class="po">
+                <p class="io">Refferal</p>
+                <span class="po__p">$10</span>
+              </div>
+              <div class="po">
+                <p class="ga">Gateway</p>
+                <span class="po__p">BTC/USDT</span>
+              </div>
+            </div>
+            <div class="price__con">
+              <h3 class="plan">Gold Plan</h3>
+              <p class="invi__p">25% INVESTMENT IN 48 HOURS</p>
+              <div class="po">
+                <p class="min">Minimum</p>
+                <span class="po__p">$1000</span>
+              </div>
+              <div class="po">
+                <p class="max">Maximum</p>
+                <span class="po__p">$4999</span>
+              </div>
+              <div class="po">
+                <p class="io">Refferal</p>
+                <span class="po__p">$10</span>
+              </div>
+              <div class="po">
+                <p class="ga">Gateway</p>
+                <span class="po__p">BTC/USDT</span>
+              </div>
+            </div>
+            <div class="price__con">
+              <h3 class="plan">Diamond Plan</h3>
+              <p class="invi__p">30% INVESTMENT IN 72 HOURS</p>
+              <div class="po">
+                <p class="min">Minimum</p>
+                <span class="po__p">$5000</span>
+              </div>
+              <div class="po">
+                <p class="max">Maximum</p>
+                <span class="po__p">19999</span>
+              </div>
+              <div class="po">
+                <p class="io">Refferal</p>
+                <span class="po__p">$10</span>
+              </div>
+              <div class="po">
+                <p class="ga">Gateway</p>
+                <span class="po__p">BTC/USDT</span>
+              </div>
+            </div>
+            <div class="price__con">
+              <h3 class="plan">Contract Plan</h3>
+              <p class="invi__p">50% INVESTMENT IN 120 HOURS</p>
+              <div class="po">
+                <p class="min">Minimum</p>
+                <span class="po__p">$20000</span>
+              </div>
+              <div class="po">
+                <p class="max">Maximum</p>
+                <span class="po__p">$100000</span>
+              </div>
+              <div class="po">
+                <p class="io">Refferal</p>
+                <span class="po__p">$10</span>
+              </div>
+              <div class="po">
+                <p class="ga">Gateway</p>
+                <span class="po__p">BTC/USDT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container con3">
+        <div class="row">
+          <div>
+            <h1 class="tit">What Our Client Say About Us</h1>
+            <div class="review">
+              <div class="rev">
+                <div class="rev__con">
+                  <p>Jake Lawson</p>
+                </div>
+                <p>
+                  "I get paid here in prime capital than i am paid at work,
+                  investing with prime capital is the best decision i have
+                  made in my financial life"
+                </p>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <div class="rev">
+                <div class="rev__con">
+                  <p>Manuel Leno</p>
+                </div>
+                <p>
+                  "I have experienced months of successful trading and withdrawal with this platform and i must say its
+                  the best investment a person can make"
+                </p>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+              <div class="rev">
+                <div class="rev__con">
+                  <p>Mario Rio</p>
+                </div>
+                <p>
+                  "I have built up a successful business with the profit i made from investing in crypto with Prime
+                  Capitals, I am very happy i came across this platform"
+                </p>
+                <div class="ratings">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="container con4">
+      <div class="row">
+        <div class="footer">
+          <h1>Prime Capitals</h1>
+          <div class="foots">
+            <p class="foot"><a class="ai foot__effect" href="">Home</a></p>
+            <p class="foot"><a class="ai foot__effect" href="">Market</a></p>
+            <p class="foot"><a class="ai foot__effect" href="">Leader</a></p>
+            <p class="foot"><a class="ai foot__effect" href="">Trading</a></p>
+            <p class="foot"><a class="ai foot__effect" href="">Support</a></p>
+          </div>
+          <p>Copyright © 2023 Prime-Capitals.org</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+
+</html>

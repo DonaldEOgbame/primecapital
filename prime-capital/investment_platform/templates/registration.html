@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Registration</title>
+  </head>
+   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@700&display=swap');
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  body{
+   background-color: #242424;
+  }
+    .we{
+     padding: 5px 40px 5px 40px;
+     border-radius: 25px;
+     margin-top: 20px;
+     background-color: #fff;
+     color: black;
+     font-weight: 600;
+     transition: all 330ms ease;
+     font-size: 22px;
+      margin-left: 45px;
+    }
+    .we:hover{
+     background-color: black;
+     color: #fff;
+    }
+    input{
+     padding: 5px 75px 5px 5px;
+     display: flex;
+     margin-top: 15px;
+     background-color: black;
+     color: white;
+     border-radius: 18px;
+     margin-bottom: 20px;
+    }
+    label{
+     font-size: 20px;
+     font-weight: 500;
+     color: #fff;
+     font-style: oblique;
+    }
+    h1{
+     margin: 0 0 30px 10px;
+     color: #fff;
+     text-transform: uppercase;
+     font-style: obliqu;
+    }
+    .ew{
+       display: flex;
+       align-items: center;
+     flex-direction: column;
+     box-shadow: 0 0 15px rgba(0, 0, 0.7);
+     border-radius: 10px;
+     background-color: black;
+     padding: 70px;
+    }
+    .container{
+     padding: 60px 40px;
+      display: flex;
+       align-items: center;
+     flex-direction: column;
+    }
+    .row{
+      width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    align-items: center;
+    }
+    .fo{
+     margin-left: 28px;
+    }
+    .helptext{
+     display: none;
+    }
+    #id_password2_helptext{
+      display:none;
+    }
+    li{
+     display: none;
+    }
+    @media (max-width: 820px) {
+     .container{
+      padding-top: 160px;
+     }
+    }
+    @media (max-width: 432px){
+    .container{
+     padding-top: 60px;
+    }
+    input{
+     padding-right: 5px;
+    }
+    .fo{
+     margin-left: 15px;
+    }
+    label{
+     font-size: 15px;
+    }
+    .lo{
+     font-size: 22px;
+    }
+    .we{
+      font-size: 15px;
+      margin-left: 20px;
+    }
+    }
+  </style>
+  <body>
+    {% block content %}
+    <div class="container">
+     <div class="row">
+       <div class="ew">
+         <h1 class="lo">Register</h1>
+        <form class="fo" method="post" >
+          {% csrf_token %} {{ form.as_p }}
+            <button class="we" type="submit">Register</button>
+        </form>
+       </div>
+     </div>
+    </div>
+    {% endblock %}
+  </body>
+</html>

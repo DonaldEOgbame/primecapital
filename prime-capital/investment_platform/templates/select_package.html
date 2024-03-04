@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'dashboard.cs' %}" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Package</title>
+  </head>
+ <style>
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+  }
+
+  .topbar {
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+    width: 100%;
+    padding: 0 20px;
+    height: 60px;
+    display: grid;
+    grid-template-columns: 2fr 10fr 0.4fr 1fr;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+  }
+
+  /* sidebar */
+  .sidebar {
+    position: fixed;
+    top: 60px;
+    width: 260px;
+    height: calc(100% - 60px);
+    background: black;
+    overflow-x: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    z-index: 2;
+  }
+
+  .sidebar ul {
+    margin-top: 20px;
+  }
+
+  .sidebar ul li {
+    width: 100%;
+    list-style: none;
+  }
+
+  .sidebar ul li:hover {
+    background: #fff;
+  }
+
+  .sidebar ul li:hover a {
+    color: black;
+  }
+
+  .sidebar ul li a {
+    width: 100%;
+    text-decoration: none;
+    color: #fff;
+    height: 60px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sidebar ul li a i {
+    min-width: 60px;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  /* main */
+  .main {
+    position: absolute;
+    top: 60px;
+    width: calc(100% - 260px);
+    min-height: calc(100vh - 60px);
+    left: 260px;
+    background: #242424;
+  }
+
+  .btn2{
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: all 330ms ease;
+    font-size: 15px;
+  }
+
+  .al{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+  }
+  .btn2:hover{
+    background-color: #242424;
+  }
+  .deposit{
+    padding-top: 50px;
+    padding-left: 30px;
+  }
+
+  .select1{
+    font-size: 24px;
+    color: #fff;
+    font-weight: 600;
+     margin-bottom: 24px;
+  }
+
+
+
+  .h1s{
+    margin-bottom: 25px;
+    font-size:38px ;
+    font-style: oblique;
+    color: #fff;
+  }
+
+  @media (max-width:880px) {
+
+    .topbar {
+      grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+    }
+
+  }
+
+  @media (max-width:420px) {
+    .sidebar {
+      width: 60px;
+    }
+
+    .main {
+      width: calc(100% - 60px);
+      left: 60px;
+    }
+
+    .h1s{
+      font-size: 20px;
+    }
+
+    .select1{
+      font-size: 15px;
+    }
+
+    .logo{
+      font-size: 10px;
+    }
+
+    .user p{
+      font-size: 12px;
+    }
+
+    .btn2{
+      font-size:11px;
+      padding:5px 5px;
+    }
+
+    .deposit{
+      text-align: center;
+      padding-left:5px;
+    }
+
+  }
+</style>
+
+<body>
+  <section>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Prime-Capital</h2>
+            </div>
+            <div class="user">
+                <p>{{ user.username }}</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i id="i" class="fas fa-solid fa-house-user"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'select-package' %}">
+                        <i id="i" class="fas fa-solid fa-cash-register"></i>
+                        <div>Deposit</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'request-withdrawal' %}">
+                        <i id="i" class="fas fa-solid fa-wallet"></i>
+                        <div>Withdraw</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'transactions' %}">
+                        <i id="i" class="fas fa-solid fa-location-arrow"></i>
+                        <div>Transactions</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">
+                        <i id="i" class="fas fa-solid fa-user"></i>
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'submit-verification' %}">
+                        <i class="fas fa-solid fa-check"></i>
+                        <div>Verification</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'referrals' %}">
+                        <i id="i" class="fas fa-solid fa-user-plus"></i>
+                        <div>Refferal</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'customer' %}">
+                        <i id="i" class="fas fa-solid fa-headset"></i>
+                        <div>Customer
+                            Support</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i id="i" class="fas fa-solid fa-outdent"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+  </section>
+  <section>
+    <div class="main">
+      <div class="row">
+        <div class="deposit">
+          <h1 class="h1s">Select Investment Package</h1>
+          <form method="post">
+            {% csrf_token %} {% for package in packages %}
+            <div class="select1">
+              <input type="radio" name="package_id" value="{{ package.id }}" />
+              <label>{{ package.name }} - {{ package.min_amount }} to {{ package.max_amount }} {{ package.currency }}</label>
+            </div>
+            {% endfor %}
+            <div>
+              <button class="btn2"  type="submit">
+                <a href="{% url 'payment_details' %}" class="al">Select Package</a>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

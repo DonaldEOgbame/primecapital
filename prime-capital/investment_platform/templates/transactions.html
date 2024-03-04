@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'dashboard.cs' %}" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Transactions</title>
+  </head>
+ <body>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: 'poppins', sans-serif;
+    }
+
+    .topbar {
+      position: fixed;
+      background-color: #fff;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+      width: 100%;
+      padding: 0 20px;
+      height: 60px;
+      display: grid;
+      grid-template-columns: 2fr 10fr 0.4fr 1fr;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1;
+    }
+
+    /* sidebar */
+    .sidebar {
+      position: fixed;
+      top: 60px;
+      width: 260px;
+      height: calc(100% - 60px);
+      background: black;
+      overflow-x: hidden;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    hr{
+     color: black;
+    }
+
+    .sidebar ul {
+      margin-top: 20px;
+    }
+
+    .sidebar ul li {
+      width: 100%;
+      list-style: none;
+    }
+
+    .sidebar ul li:hover {
+      background: #fff;
+    }
+
+    .sidebar ul li:hover a {
+      color: black;
+    }
+
+    .sidebar ul li a {
+      width: 100%;
+      text-decoration: none;
+      color: #fff;
+      height: 60px;
+      display: flex;
+      align-items: center;
+    }
+
+    .sidebar ul li a i {
+      min-width: 60px;
+      font-size: 24px;
+      text-align: center;
+    }
+
+
+
+    /* main */
+    .main {
+      position: absolute;
+      top: 60px;
+      width: calc(100% - 260px);
+      min-height: calc(100vh - 60px);
+      left: 260px;
+      background: #242424;
+    }
+
+    .thea{
+      border-bottom: 3px solid black;
+    }
+
+    .depo {
+      color: j;
+    }
+
+    caption{
+     color: white;
+     background-color: black;
+    }
+
+    .h1s{
+    margin-bottom: 25px;
+    font-size:38px ;
+    font-style: oblique;
+    color: #fff;
+    padding-left: 30px;
+  }
+
+    .transaction {
+  margin-top: 50px;
+}
+
+/* Styles for the tables */
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+/* Styles for table captions */
+caption {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/* Styles for table headers */
+th {
+  background-color: #f2f2f2;
+  padding: 10px;
+  text-align: left;
+}
+
+/* Styles for table cells */
+td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Styles for the "No data" message */
+.no-data {
+  text-align: center;
+  color: #999;
+}
+
+/* Styles for alternating row colors */
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.td__with{
+  background-color: black;
+  color: #fff;
+}
+/* Styles for the "Pending" status */
+td:contains("pending") {
+  color: orange;
+  font-weight: bold;
+}
+
+/* Styles for the "Processed" status */
+td:contains("processed") {
+  color: green;
+  font-weight: bold;
+}
+
+    @media (max-width:880px) {
+
+      .topbar {
+        grid-template-columns: 1.6fr 6fr 0.4fr 1fr;
+      }
+
+    }
+
+    @media (max-width:420px) {
+      .sidebar {
+        width: 60px;
+      }
+
+      .main {
+        width: calc(100% - 60px);
+        left: 60px;
+      }
+
+      .h1s{
+       font-size: 15px;
+      }
+
+      .depo{
+       font-size: 10px;
+      }
+
+       .dep{
+       font-size: 10px;
+      }
+    }
+  </style>
+  <section>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>Prime-Capital</h2>
+            </div>
+            <div class="user">
+                <p>{{ user.username }}</p>
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'dashboard' %}">
+                        <i id="i" class="fas fa-solid fa-house-user"></i>
+                        <div>Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'select-package' %}">
+                        <i id="i" class="fas fa-solid fa-cash-register"></i>
+                        <div>Deposit</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'request-withdrawal' %}">
+                        <i id="i" class="fas fa-solid fa-wallet"></i>
+                        <div>Withdraw</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'transactions' %}">
+                        <i id="i" class="fas fa-solid fa-location-arrow"></i>
+                        <div>Transactions</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'profile' %}">
+                        <i id="i" class="fas fa-solid fa-user"></i>
+                        <div>Profile</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'submit-verification' %}">
+                        <i class="fas fa-solid fa-check"></i>
+                        <div>Verification</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'referrals' %}">
+                        <i id="i" class="fas fa-solid fa-user-plus"></i>
+                        <div>Refferal</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'customer' %}">
+                        <i id="i" class="fas fa-solid fa-headset"></i>
+                        <div>Customer
+                            Support</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'logout' %}">
+                        <i id="i" class="fas fa-solid fa-outdent"></i>
+                        <div>Logout</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+  </section>
+  <div class="main">
+    <div class="row">
+      <div class="transaction">
+        <h1 class="h1s">Transaction History</h1>
+        <table class="depo">
+          <caption>Deposits</caption>
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for deposit in deposits %}
+            <tr>
+              <td class="td__with">{{ deposit.amount }}</td>
+              <td class="td__with">{{ deposit.transaction_date }}</td>
+            </tr>
+            {% empty %}
+            <tr class="td__with">
+              <td colspan="2" class="no-data">No deposits made yet.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <table class="depo">
+          <caption>Withdrawals</caption>
+          <tbody>
+            {% for withdrawal in withdrawals %}
+            <tr>
+              <th>Amount:</th>
+              <td class="td__with" >{{ withdrawal.amount }}</td>
+              </th>
+            <tr>
+              <th>Date:</th>
+              <td class="td__with">{{ withdrawal.created_at }}</td>
+              </th>
+            <tr>
+              <th>Status:</th>
+              <td class="td__with">
+                {% if withdrawal.status %}
+                {{ withdrawal.get_status_display }}
+                {% else %}
+                pending
+                {% endif %}
+              </td>
+              </th>
+            <tr>
+              <th class="thea">Processed At:</th>
+              <td class="td__with">{{ withdrawal.processed_at }}</td>
+              </th>
+              {% empty %}
+            <tr>
+              <td colspan="4" class="no-data">No withdrawals made yet.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+        <table class="dep">
+          <caption>Earnings</caption>
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for earning in earnings %}
+            <tr>
+              <td class="td__with">{{ earning.amount }}</td>
+              <td class="td__with">{{ earning.earning_date }}</td>
+            </tr>
+            {% empty %}
+            <tr class="td__with">
+              <td colspan="2" class="no-data">No earnings yet.</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

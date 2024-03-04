@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <title>Login</title>
+  </head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lato:wght@700&display=swap');
+ *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+  }
+  .container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #242424;
+  }
+
+    .ew{
+      background-color: black;
+      padding: 80px 80px;
+      border-radius: 20px;
+    }
+
+    .ew h1{
+      text-align:center;
+      color: #fff;
+      margin-bottom: 40px;
+      font-size: 40px
+    }
+
+    input{
+     width: 100%;
+     height: 100%;
+     background: transparent;
+     border: none;
+     outline: none;
+     border: 2px solid #fff;
+     border-radius: 40px;
+     color: #fff;
+     padding: 10px 45px 10px 20px;
+     margin-top: 10px;
+     margin-bottom: 10px;
+    }
+
+    label{
+     color: #fff;
+     font-weight: 700;
+    }
+
+    a{
+     color:#fff;
+     text-decoration: none;
+    }
+
+    a:hover{
+      text-decoration: underline;
+    }
+
+    .btn{
+      width:100%;
+      background: #fff;
+      border: none;
+      outline: none;
+      border-radius: 40px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px;
+      margin-top: 40px;
+      font-size: 20px;
+      font-weight:700;
+      transition: all ease 330ms;
+      border: 2px solid white;
+    }
+    .btn:hover{
+     color:#fff;
+     background: transparent;
+
+    }
+  </style>
+  <body>
+    {% block content %}
+    <div class="container">
+      <div class="row">
+        <div class="ew">
+
+           <form method="post">
+              <h1>Login</h1>
+             {% csrf_token %} {{ form.as_p }}
+             <div>
+               <a href="">Forget password ?</a>
+             </div>
+              <button class="btn"   type="submit">Login</button>
+           </form>
+
+        </div>
+      </div>
+      {% endblock %}
+    </div>
+  </body>
+</html>

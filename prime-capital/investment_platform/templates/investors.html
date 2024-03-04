@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <script
+    src="https://kit.fontawesome.com/c8e4d183c2.js"
+    crossorigin="anonymous"
+  ></script>
+    <script src="app.js" defer></script>
+    <title>Investors</title>
+  </head>
+  <body>
+    <section id="lan">
+      <div class="land2">
+        <div class="row">
+          <nav class="navbar1">
+            <div class="logo">
+              <img
+                src="{% static 'logo.2c489fc453a1783cbadacf914efa3df6.svg' %}"
+                class="logo__img"
+                alt=""
+              />
+              <a href="" class="logo__name">Prime Capital</a>
+            </div>
+            <ul>
+              <li>
+                <a href="{% url 'index' %}" class="nav__link nav__link--effect"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'market' %}" class="nav__link nav__link--effect"
+                  >Market</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'leaders' %}" class="nav__link nav__link--effect"
+                  >Leader</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'investors' %}" class="nav__link nav__link--effect">Trading</a>
+              </li>
+              <li>
+                <a href="{% url 'support' %}" class="nav__link nav__link--effect"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'login' %}" class="nav__link nav__link--effect">Login</a>
+              </li>
+              <li>
+                <a href="{% url 'register' %}" class="nav__btn nav__btn--display">Sign up</a>
+              </li>
+            </ul>
+            <button class="btn__menu" onclick="openMenu()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu__backdrop">
+              <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                <i class="fas fa-times"></i>
+              </button>
+              <ul class="menu__links">
+                <li class="menu__list">
+                  <a href="index.html" class="menu__link" onclick="closeMenu()"
+                    >Home</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a href="market.html" class="menu__link" onclick="closeMenu()"
+                    >Market</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'leaders' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Leader</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'investors' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Trading</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'support' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Support</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a href="{% url 'login' %}" class="menu__link" onclick="closeMenu()">Login</a>
+                </li>
+                <li class="menu__list">
+                  <a href="{% url 'register' %}" class="menu__link" onclick="closeMenu()"
+                    >Sign Up</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <h1 class="supp">Investors</h1>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="investor">
+            <div class="investor__text">
+              <h2 class="inves__h1">An Investor Growth rating</h2>
+              <p class="inves__p">
+                An investor has the best ability to seek a higher return and
+                take on higher risk when they have a long-term time horizon.
+                Investors have their longest time horizons, and therefore a high
+                tolerance for risk, when they are young. Young people also tend
+                to be less experienced with having money. As a result, they are
+                often tempted to focus on how money can benefit them in the
+                present, without focusing on any long-term goals
+              </p>
+              <p>
+                Just saving money is great, but it does not offer much, if any
+                profit like an investment can. Being patient is the key to
+                seeing the benefits of investment, so remember that while it
+                seems like you’re giving your money away at first, it will be
+                well worth it in the end when you get that final return on all
+                of your hard work and money invested. Not only will you have
+                money for the future, but investing can be fun as well
+              </p>
+              <button class="invest__btn">
+                <a href="">Start Investing</a>
+              </button>
+            </div>
+            <figure class="investor__fig">
+              <img
+                src="{% static 'istockphoto-1358927461-612x612.jpg' %}"
+                class="investor__img"
+                alt=""
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container con4">
+        <div class="row">
+          <div class="footer">
+            <h1>Prime Capitals</h1>
+            <div class="foots">
+              <p class="foot"><a class="ai foot__effect" href="">Home</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Market</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Leader</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Trading</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Support</a></p>
+            </div>
+            <p>Copyright © 2023 Prime-Capitals.org</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

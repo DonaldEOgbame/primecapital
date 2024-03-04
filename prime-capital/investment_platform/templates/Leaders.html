@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'main.css'%}" />
+    <script
+      src="https://kit.fontawesome.com/c8e4d183c2.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js" defer></script>
+    <title>Leaders</title>
+  </head>
+  <body>
+    <section id="lan">
+      <div class="land3">
+        <div class="row">
+          <nav class="navbar1">
+            <div class="logo">
+              <img
+                src="{% static 'logo.2c489fc453a1783cbadacf914efa3df6.svg' %}"
+                class="logo__img"
+                alt=""
+              />
+              <a href="" class="logo__name">Prime Capital</a>
+            </div>
+             <ul>
+              <li>
+                <a href="{% url 'index' %}" class="nav__link nav__link--effect"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'market' %}" class="nav__link nav__link--effect"
+                  >Market</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'leaders' %}" class="nav__link nav__link--effect"
+                  >Leader</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'investors' %}" class="nav__link nav__link--effect">Trading</a>
+              </li>
+              <li>
+                <a href="{% url 'support' %}" class="nav__link nav__link--effect"
+                  >Support</a
+                >
+              </li>
+              <li>
+                <a href="{% url 'login' %}" class="nav__link nav__link--effect">Login</a>
+              </li>
+              <li>
+                <a href="{% url 'register' %}" class="nav__btn nav__btn--display">Sign up</a>
+              </li>
+            </ul>
+            <button class="btn__menu" onclick="openMenu()">
+              <i class="fas fa-bars"></i>
+            </button>
+            <div class="menu__backdrop">
+              <button class="btn__menu btn__menu--close" onclick="closeMenu()">
+                <i class="fas fa-times"></i>
+              </button>
+              <ul class="menu__links">
+                <li class="menu__list">
+                  <a href="index.html" class="menu__link" onclick="closeMenu()"
+                    >Home</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a href="market.html" class="menu__link" onclick="closeMenu()"
+                    >Market</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'leaders' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Leader</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'investors' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Trading</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a
+                    href="{% url 'support' %}"
+                    class="menu__link"
+                    onclick="closeMenu()"
+                    >Support</a
+                  >
+                </li>
+                <li class="menu__list">
+                  <a href="{% url 'login' %}" class="menu__link" onclick="closeMenu()">Login</a>
+                </li>
+                <li class="menu__list">
+                  <a href="{% url 'register' %}" class="menu__link" onclick="closeMenu()"
+                    >Sign Up</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <h1 class="supp">Our Global Team Leaders</h1>
+          <p class="lead__p">
+            Our global research team identifies the information that drives
+            markets so you can forecast potential price movement and seize
+            opportunities.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container con7">
+        <div class="row">
+          <div class="lea">
+            <div class="lead__text">
+              <h2 class="lead__text--h2">TOP HEAD OF FINANCIAL ADVISORS</h2>
+              <p>
+                They are committed to supporting you throughout your journey to
+                ensure an exceptional customer experience
+              </p>
+            </div>
+          </div>
+          <div class="lead">
+            <div class="leader">
+              <figure class="leader__fig">
+                <img
+                  src="{% static 'itay-verchik-6ZKGBzrDd3I-unsplash (3).jpg' %}"
+                  class="leader__img"
+                  alt=""
+                />
+              </figure>
+              <div class="lead__info">
+                <h4 class="lead__h4">Lorenzo Garcia</h4>
+                <p class="lea__p">Finance Director</p>
+                <p class="lead__p1">lorenzofx@outlook</p>
+              </div>
+            </div>
+            <div class="leader">
+              <figure class="leader__fig">
+                <img
+                  src="{% static 'linkedin-sales-solutions-pAtA8xe_iVM-unsplash (1).jpg' %}"
+                  alt=""
+                  class="leader__img"
+                />
+              </figure>
+              <div class="lead__info">
+                <h4 class="lead__h4">Fred Martin</h4>
+                <p class="lea__p">Finance Director</p>
+                <p class="lead__p1">lorenzofx@outlook</p>
+              </div>
+            </div>
+            <div class="leader">
+              <figure class="leader__fig">
+                <img
+                  src="{% static 'ali-morshedlou-WMD64tMfc4k-unsplash (1).jpg' %}"
+                  alt=""
+                  class="leader__img"
+                />
+              </figure>
+              <div class="lead__info">
+                <h4 class="lead__h4">Leonard Galo</h4>
+                <p class="lea__p">Finance Director</p>
+                <p class="lead__p1">lorenzofx@outlook</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="container con4">
+        <div class="row">
+          <div class="footer">
+            <h1>Prime Capitals</h1>
+            <div class="foots">
+              <p class="foot"><a class="ai foot__effect" href="">Home</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Market</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Leader</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Trading</a></p>
+              <p class="foot"><a class="ai foot__effect" href="">Support</a></p>
+            </div>
+            <p>Copyright © 2023 Prime-Capitals.org</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
